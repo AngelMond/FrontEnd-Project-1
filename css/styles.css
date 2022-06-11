@@ -1,0 +1,611 @@
+/* FUENTES*/
+@font-face {
+
+    font-family: "nevis";
+    src: url("fonts/nevis.eot");
+    src: url("fonts/nevis.eot?#iefix") format("embedded-opentype"),
+    url("fonts/nevis.woff") format("woff"),
+    url("fonts/nevis.ttf") format("truetype"),
+    url("fonts/nevis.svg") format("svg");
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*ESTILOS GENERALES*/
+
+
+*{
+    padding: 0PX;
+    margin: 0px;
+}
+
+
+body{
+    background-image: url("../img/paven.png");
+}
+
+
+
+/* Cabecera */
+
+/* Esta es la caja principla que contiene a mi logo y a mi h1
+1- Damos el anchio minimo 
+2- Decimos que ocupe todo el ancho de la pantalla
+3- Le damos la altura que va a tener la caja de la cabecera
+
+
+4- margin 0px auto (Los 0px es para arriba-abajo y el auto es para 
+izquierda derecha
+*/
+#header{
+    min-width: 1024px;
+    width: 100%;
+    height: 250px;
+    margin: 0px auto; /*No queremos que tenga ningun margen por ningun lado
+        asi la adaptamos a nuestro gusto*/
+    
+}
+
+
+#header a{
+    text-decoration: none; /* Quitamos la linea del enlace
+    que tiene por defecto  */
+}
+
+#header #logotipo{
+    width: 770px; /* Damos el ancho a la caja que contiene el logo*/
+    margin: 0px auto; /*Con esto centramos LA CAJA que contiene el logo, pero no el logo*/
+    padding-top: 20px; /*Este padding es para que la caja del logo tenga un margen
+    en la parte superior*/
+}
+
+
+/* Ahora vamos a trabajar direcatmente con el logo para centrarlo y darle el tamaño
+correspondiente*/
+#header #logotipo img{
+    display: block; /*para que se comporte como un 
+    bloque y podamos mover la img a nuestro gusto*/
+    margin: 0px auto; /*Es indispensable quitale todos los margenes 
+    para que el text align center centre el logo*/
+    text-align: center; /* Centramos el logo*/
+    width: 140px;  
+}
+
+
+#header h1{
+    text-align: center;
+    font-size: 40px;
+    font-family: "nevis";
+    letter-spacing: 4px;
+    margin-top: 10px;
+    text-shadow: 0px 5px 5px #333333; /*  0px sobra a la derecha
+                                            5px sombra a la izquierda
+                                            5px difuminado*/
+
+    transition: all 300ms;
+}
+
+#header h1:hover{
+
+    text-shadow: 0px 5px 5px #333333, 0px 3px 3px #70b231; 
+}
+
+#header h1 a{
+    color: #70b231;
+}
+
+/* BARRA DE NAVEFGACION*/
+
+#nav{
+    width: 100%;
+    background-color: #333333;
+    
+    height: 40px;
+    font-family: sans-serif, Arial, Helvetica;
+    font-size: 14px;
+    box-shadow: 0px 0px 2px gray;
+}
+
+
+#nav ul{
+    list-style: none;
+   /* text-decoration: none;*/
+    margin:  0px auto;
+    width: 1090px;
+    
+}
+
+#nav > ul > li{ /*Con esta instruccion selecciono todos mis <li> */
+    line-height: 40px; /* Para que se centre verticalmente. Aqui se pone la misma altura height que le dimos a nuestra etiqueta nav*/
+    float: left;
+    border-right: 1px solid gray;
+    transition: 200ms; /* Esta instruccion la puse despues de poner el hover 
+                        que esta mas abajo*/
+}
+
+
+
+#nav > ul > li a{ 
+    display: block;
+    color: white;
+    text-decoration: none;
+
+    padding-left: 20px; /* el padding der e izq los usamos para hacer el 
+                        margen interno y centrar nuestros enlaces. 20 y 20 y 
+                        asi quedara centrado*/
+    padding-right: 20px;
+    
+}
+
+#nav ul li:nth-child(1){
+    border-left: 1px solid gray; /*Yo agregue esta línea para poner el borde izquierdo del primer 
+                                    li que faltaba*/
+}
+
+#nav > ul > li:hover{
+    background-color: #70b231;
+    box-shadow: 0px 0px 4px green inset;
+    
+}
+
+
+
+/* MI DISEÑO DEL MENÚ DE NAVEGACIÓN
+#nav ul li{
+    margin: 0px auto;
+    display: block;
+    float: left;
+    border-right: 1px solid #727272;
+    height: 40px;
+    line-height: 40px;
+    
+    margin-right: 20px;
+    text-align: center;
+}
+
+#nav a{
+    color: white;
+    text-decoration: none;
+    margin-right: 50px;
+    
+}
+
+#nav li:nth-child(1){
+    margin-left: 200px;
+    border-left: 1px solid #727272;
+    
+}
+*/
+
+
+/* MENÚ DESPLEGABLE*/
+
+#nav > ul > li > ul{
+    display: none; /* Para ocultar el htmml que es la sublista que se sale de nuestro menu,
+                    despues le diremos que aparezca con otra regla*/
+
+    position: absolute; /* Para que no desfigure la estructura del sitio web y solo salga
+                            cuando tenga que salir */
+
+    /*                        
+    color: white;
+    text-align: left; estos dos los quito el maestro
+    */
+    width: 160px;
+    box-shadow: 0px 2px 2px gray;
+    z-index: 1;
+}
+
+/* Ahora vamos a hacer que nuestros submenus de nuestra barra de navegacion 
+aparezcan al pasar el mouse por encima*/
+
+#nav > ul > li:hover > ul{
+    display: block;
+}
+
+#nav > ul > li:hover > ul > li{
+    background-color: #f2f1f0;
+    border-bottom: 1px solid #d6d6d6;
+
+    padding: 8px; /*Para separar los elementos*/
+    line-height: 25px; /*para alinearlos verticalmente*/
+
+    font-size: 13px;
+
+}
+
+/* Aqui le vamos a dar color a la fuente de los enlaces desplegables*/
+#nav > ul > li:hover > ul > li a{
+    color: #666;
+
+}
+
+/* Aqui vamos darle el efecto al pasar por encima de los elementos de los
+sub enlaces*/
+
+#nav > ul > li:hover > ul > li:hover{
+
+    box-shadow: 0px 0px 6px #70b231 inset;
+
+    /*Otra opcion es cambiar el fondo con
+
+    background: #ccc; 
+    
+    */
+}
+
+/*CONTENIDO PRINCIPAL*/
+#contenidoprin{
+
+    width: 100%;
+    height: 1950px;
+  }
+
+
+/*Mi código para la barra lateral*/
+
+#content{
+    width: 227px;
+    height: 975px;
+    border: 1px solid #D2D2D2;
+    margin-left: 187px;
+    margin-top: 35px;
+    background-color: #FFFFFF;
+    box-shadow: 5px 5px 2px #E2E2E2;
+
+    float: none;
+    clear: both;
+}
+
+#content h3{
+
+    text-align: center;
+    margin: 0px auto;
+    margin-top: 15px;
+    border-top: 1px solid #DCDDDC;
+    border-bottom: 1px solid #DCDDDC;
+    width: 200px;
+    background-color: #F2F3F2 ;
+    font-weight: bold;
+}
+
+.widget #h3azul{
+    color: #1B73F2;
+    
+}
+
+.widget #h3rojo{
+    color: #A3272D;
+    
+}
+
+.widget{
+    border-bottom: 1px dashed #B1B1B1;
+    height: 270px;
+    text-align: center;
+    
+}
+
+#content div:nth-child(2){
+    height: 190px;
+}
+
+#content div:nth-child(3){
+    height: 190px;
+}
+
+#content div:nth-child(4){
+    height: 248px;
+}
+
+ #content form{
+     
+    margin-top: 25px;
+    
+    
+
+}
+
+#content label{
+    font-weight: bold;
+}
+
+#content input[type="submit"]{
+    margin-top: 8px;
+    width: 67px;
+    height: 27px;
+    background-color: #63A624 ;
+    border: 1px solid #52A01F;
+    color: #F5F9F1 ;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px #5AA741;
+}
+
+#content input[type="text"]{
+ width: 197px;
+ height: 20px;
+ border: 1px solid #D4D4D4;
+ box-shadow: 2px 2px 8px #E7E7E7 ;
+}
+
+#content input[type="password"]{
+    width: 197px;
+    height: 20px;
+    border: 1px solid #D4D4D4;
+    box-shadow: 2px 2px 8px #E7E7E7 ;
+   }
+
+
+.widget a{
+    text-decoration: none;
+    color: #699B34 ;
+}
+
+.widget #accesos{
+
+    text-align: left;
+    margin-top: 15px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.widget ul{
+    width: 175px;
+    margin: 0px auto;
+    margin-top: 15px;
+    margin-left: 35px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.widget ul li{
+    margin-top: 8px;
+}
+
+/* Fin de mi código para la barra lateral*/
+
+/* frases del dia*/
+
+#frasedia{
+    border: 1px solid #D2D2D2;
+    width: 227px;
+    height: 100px;
+    margin-top: 82px;
+    background-color: #FFFFFF;
+    box-shadow: 5px 5px 5px #E2E2E2;
+}
+
+#frasesdiarias {
+    margin-left: 12px;
+    margin-top: 12px;
+    
+}
+
+
+#frasesdiarias a{
+  text-decoration: none;
+  color: #699B34;
+  font-size: 18px;
+    
+}
+
+#frasesdiarias p{
+    
+    font-size: 18px;
+      
+  }
+
+  /* Fin frases del dia*/
+
+  .clearfix{
+    float: none;
+    clear: both;
+}
+
+
+  /* INICIO SECCIONES DEL CONTENIDO*/
+
+  #sections{
+    
+    position: absolute;
+    top: 350px;
+    left: -87px;
+    width: 1238px;
+    height: 1870px;
+    margin-left: 572px;
+    
+}
+
+#sections #articulo1{
+    width: 100%;
+    height: 645px;
+    border: 1px solid #D2D2D2;
+    box-shadow: 5px 5px 2px #E2E2E2;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+
+#sections #articulo2{
+    width: 100%;
+    height: 540px;
+    border: 1px solid #D2D2D2;
+    box-shadow: 5px 5px 2px #E2E2E2;
+    border-radius: 20px;
+    margin-top: 48px;
+    background-color: #FFFFFF;
+}
+
+#sections #articulo3{
+    width: 100%;
+    height: 540px;
+    border: 1px solid #D2D2D2;
+    box-shadow: 5px 5px 2px #E2E2E2;
+    border-radius: 20px;
+    margin-top: 45px;
+    background-color: #FFFFFF;
+}
+
+#sections h2{
+    text-align: center;
+    margin: 0px auto;
+    width: 1013px;
+    margin-top: 15px;
+    border-bottom: 2px solid #EFEFEF;
+    font-size: 28px;
+}
+
+.parrafos{
+    margin: 0px auto;
+    width: 1200px;
+    margin-top: 15px ;
+    
+}
+
+.parrafos p{
+    margin: 0px auto;
+    text-align: left;
+    font-size: 20px;
+    margin-top: 18px;
+}
+
+.parrafos a{
+    text-decoration: none;
+    color: #699B34 ;
+    font-weight: bold;
+}
+
+#sections #historico{
+    text-decoration: none;
+    color: #699B34 ;
+    margin-left: 1010px;
+    font-size: 22px;
+    
+}
+
+#articulo2 h2{
+    color: #9D2422;
+}
+
+#articulo3 h2{
+    color: #D69D2A;
+}
+
+
+#sections .pegatina1{
+    margin-left:17px ;
+}
+
+#sections .pegatina2{
+    margin-left: 1130px;
+}
+
+#sections #articulo1 #pegatina1{
+    position: absolute;
+    top: -18px;
+}
+
+#sections #articulo1 #pegatina2{
+    position: absolute;
+    top: -18px;
+}
+
+#sections #articulo2 #pegatina3{
+    position: absolute;
+    top: 680px;
+}
+
+#sections #articulo2 #pegatina4{
+    position: absolute;
+    top: 680px;
+}
+
+#sections #articulo3 #pegatina5{
+    position: absolute;
+    top: 1267px;
+}
+
+#sections #articulo3 #pegatina6{
+    position: absolute;
+    top: 1267px;
+}
+  /* FIN SECCIONES DEL CONTENIDO*/
+
+
+
+
+
+
+
+
+
+/* INICIO PIE DE PÁGINA*/
+
+#piepagina{
+    width: 100%;
+    height: 90px;
+    border: 1px solid black;
+    margin-top: 980px;
+    background-color: #333333 ;
+}
+
+#piepagina #derechos{
+    margin: 0px auto;
+    width: 820px;
+    margin-top: 25px;
+}
+
+#piepagina #derechos p{
+    color: #D8D8D8;
+    text-align: center;
+}
+
+#piepagina #derechos a{
+    text-decoration: none;
+    color: #699B34;
+}
+
+
+/* FIN PIE DE PÁGINA*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
