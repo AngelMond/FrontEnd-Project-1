@@ -15,4 +15,4 @@
 * Well, I think the challenge was that I dont even used flexbox, so, everything its aligned just with margins and paddings.
 
 # Watch the deployed web here!
-<a href="https://angelmond.github.io/FrontEnd-Proyect1/">Go to WEB!</a>
+<a href="https://angelmond.github.io/FrontEnd-Project-1/">Go to WEB!</a>
